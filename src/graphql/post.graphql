@@ -1,0 +1,11 @@
+extend type Query {
+    posts: [Post!]! @all(model: "App\\Modules\\Post\\Models\\Post")
+    post(id: ID @eq): Post @find(model: "App\\Modules\\Post\\Models\\Post")
+}
+
+type Post {
+    id: ID
+    title: String
+    content: String
+    author: User! @belongsTo
+}
